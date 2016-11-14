@@ -14,21 +14,20 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
-        android:id="@+id/sa_result" />
-
     <Button
         android:text="Играть еще"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/sa_return_game"
+        android:layout_below="@+id/sa_result"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="51dp"
-        android:id="@+id/sa_return_game" />
+        android:layout_marginTop="21dp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sa_result"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

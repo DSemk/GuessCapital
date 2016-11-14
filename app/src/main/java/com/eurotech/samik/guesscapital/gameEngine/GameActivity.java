@@ -61,7 +61,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void gameEnd() {
-        Toast.makeText(getApplicationContext(),"Игра окончена!",Toast.LENGTH_SHORT).show();
         allAnswer = 0;
         Intent intent = new Intent(GameActivity.this,StatisticActivity.class);
         intent.putExtra("tAnswer",String.valueOf(trueAnswers));
@@ -78,7 +77,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setGameType() {
-        int type = (int) Math.random() * 3;
+        int type = (int) (Math.random() * 3);
         switch (type) {
             case 0:
                 сountryNameType();
@@ -178,7 +177,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         chosenType = TYPE_ONE;
 
         String trueName = gameList.get(0).get("name");
-        String questionStr = "Какая столица страны : " + trueName;
+        String questionStr = "Какая столица страны : " + trueName + " ?";
         question.setText(questionStr);
 
         answerOne.setText(gameList.get(3).get("capital"));
@@ -194,7 +193,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         chosenType = TYPE_SECOND;
 
         String trueName = gameList.get(0).get("name");
-        String questionStr = "Какое население страны : " + trueName;
+        String questionStr = "Какое население страны : " + trueName + " в млн. ?";
         question.setText(questionStr);
 
         answerOne.setText(String.valueOf(gameList.get(0).get("population")));
@@ -209,7 +208,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         chosenType = TYPE_THIRD;
 
         String trueName = gameList.get(0).get("name");
-        String questionStr = "Какая площадь страны в кв.км. : " + trueName;
+        String questionStr = "Какая площадь страны : " + trueName + " в кв.км. ?";
         question.setText(questionStr);
 
         answerOne.setText(gameList.get(3).get("area"));
@@ -224,7 +223,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         chosenType = TYPE_FOUR;
 
         String trueName = gameList.get(0).get("capital");
-        String questionStr = "Какой стране принадлежит столица: " + trueName;
+        String questionStr = "Какой стране принадлежит столица: " + trueName + " ?";
         question.setText(questionStr);
 
         answerOne.setText(gameList.get(3).get("name"));

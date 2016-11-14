@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import retrofit.http.GET;
 import rx.Observable;
 import rx.Subscription;
 import rx.functions.Action1;
@@ -93,6 +94,7 @@ public class LoadingActivity extends AppCompatActivity {
             @Override
             public void success(List<Country> countries, Response response) {
                 SingletonBD.getInstance().setList(createTempList(countries));
+
             }
 
             @Override
