@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.eurotech.samik.guesscapital.MainActivity"
+    android:background="@drawable/menu_back">
+
+    <Button
+        android:text="Статистика"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ma_statistic_btn"
+        android:layout_above="@+id/ma_about_btn"
+        android:layout_alignEnd="@+id/ma_start_game_btn"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:text="Начать игру"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ma_start_game_btn"
+        android:layout_alignBottom="@+id/ma_statistic_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="58dp" />
+
+    <Button
+        android:text="Выход"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="27dp"
+        android:id="@+id/ma_exit_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/ma_about_btn" />
+
+    <Button
+        android:text="О игре"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/ma_about_btn"
+        android:layout_above="@+id/ma_exit_btn"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
