@@ -5,10 +5,12 @@ import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.menu.MenuAdapter;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.eurotech.samik.guesscapital.DataBase.BaseDataManager;
 import com.eurotech.samik.guesscapital.DataBase.Country;
 import com.eurotech.samik.guesscapital.DataBase.Retrofit;
 import com.eurotech.samik.guesscapital.gameEngine.GameActivity;
@@ -30,12 +32,21 @@ public class MainActivity extends AppCompatActivity {
     Button statistic;
     private boolean dataComplete = false;
 
+
+    private void dbChecker() {
+        BaseDataManager dataManager = BaseDataManager.getDataManager(MainActivity.this);
+        if (!dataManager.bdCreateOrNo()) {
+            getServerData();
+        }else dataComplete = true;
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getServerData();
+        dbChecker();
         initialise();
         createButtonListener();
     }
@@ -54,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, GameActivity.class);
-                if (dataComplete){
+                if (dataComplete) {
                     startActivity(intent);
                 }
 
@@ -72,8 +83,7 @@ public class MainActivity extends AppCompatActivity {
         aboutAs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(), "В разработке", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "В разработке", Toast.LENGTH_SHORT).show();
             }
         });
         statistic.setOnClickListener(new View.OnClickListener() {
@@ -84,19 +94,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void finishApp() {
-        Intent intent = new Intent(MainActivity.this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("EXIT", true);
-        startActivity(intent);
-    }
-
     private void getServerData() {
         Retrofit.getContries(new Callback<List<Country>>() {
             @Override
             public void success(List<Country> countries, Response response) {
                 SingletonBD.getInstance().setList(createTempList(countries));
-                dataComplete = true;
             }
 
             @Override
@@ -108,6 +110,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<HashMap<String, String>> createTempList(List<Country> list) {
         ArrayList<HashMap<String, String>> myList = new ArrayList<>();
+        BaseDataManager dataManager = BaseDataManager.getDataManager(MainActivity.this);
+
         for (Country c : list) {
             HashMap<String, String> countryEqals = new HashMap<>();
             countryEqals.put("name", c.name);
@@ -116,6 +120,20 @@ public class MainActivity extends AppCompatActivity {
             countryEqals.put("capital", c.capital);
             myList.add(countryEqals);
         }
+        int count = 0;
+//        ArrayList<HashMap<String, String>> bdList = SingletonBD.getInstance().getList();
+        for (int i = 0; i < myList.size(); i++) {
+            HashMap<String, String> h = myList.get(i);
+            dataManager.insertCountry(
+                    h.get("name"),
+                    h.get("capital"),
+                    h.get("population"),
+                    h.get("area"));
+            count++;
+        }
+        Log.d("MA", "dbChecker() - create :" + count);
+
+        dataComplete = true;
         return myList;
     }
 }

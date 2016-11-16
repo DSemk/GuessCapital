@@ -12,7 +12,7 @@
         android:icon="@mipmap/globe"
         android:label="Угадай Страну"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>

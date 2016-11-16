@@ -4,7 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteAbortException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
 import com.eurotech.samik.guesscapital.SingletonBD;
@@ -82,7 +84,7 @@ public class BaseDataManager {
             }
             cursor.close();
 
-            if (countryList.size() != 0){
+            if (countryList.size() != 0) {
                 Log.d("BDM", "getCountry -> countryList is done");
             } else
                 return null;
@@ -146,25 +148,11 @@ public class BaseDataManager {
         return true;
     }
 
-    public boolean bdCreatOrNo() {
-        HashMap<String, String> littleBase = new HashMap<>();
-        int tempCount = 0;
-
-        String query = "SELECT " +
-                BaseDataCreator.CountryTable.COUNTRY_NAME + " , " +
-                " FROM " + BaseDataCreator.CountryTable.TABLE_NAME;
-
-        Cursor cursor = country_dataBase.rawQuery(query, null);
-        cursor.moveToFirst();
-
-        while (!cursor.isAfterLast() && tempCount != 1) {
-            littleBase.put("name", cursor.getString(0));
-            cursor.moveToNext();
-            tempCount++;
+    public boolean bdCreateOrNo() {
+        Cursor cursor = country_dataBase.query(BaseDataCreator.CountryTable.TABLE_NAME, null, null, null, null, null, null);
+        if (cursor.moveToNext()) {
+            return true;
         }
-        cursor.close();
-        if (littleBase.size() != 0) return true;
-
         return false;
     }
 }

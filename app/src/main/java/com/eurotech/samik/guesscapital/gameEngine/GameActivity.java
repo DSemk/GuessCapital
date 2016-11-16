@@ -54,6 +54,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         gameList = getGameList();
         if (allAnswer < MAX_ANSWERS) {
             if (gameList.size() != 0) {
+                allAnswer++;
                 createQuestion();
             } else Log.d("_> GA", "gameList is null");
         } else gameEnd();
@@ -62,13 +63,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     private void gameEnd() {
         allAnswer = 0;
-        Intent intent = new Intent(GameActivity.this,StatisticActivity.class);
-        intent.putExtra("tAnswer",String.valueOf(trueAnswers));
+        Intent intent = new Intent(GameActivity.this, StatisticActivity.class);
+        intent.putExtra("tAnswer", String.valueOf(trueAnswers));
         startActivity(intent);
     }
 
     private void createQuestion() {
-        allAnswer++;
         setGameType();
     }
 
@@ -166,8 +166,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
-    private void answersCapText(){
-        questNumbers.setText(allAnswer + " из " + MAX_ANSWERS);
+
+    private void answersCapText() {
+        questNumbers.setText("Вопрос " + allAnswer + " из " + MAX_ANSWERS);
     }
 
     /**
@@ -186,10 +187,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         answerFour.setText(gameList.get(1).get("capital"));
 
     }
+
     /**
      * if select TYPE_SECOND
      */
-    private void countryPopulation(){
+    private void countryPopulation() {
         chosenType = TYPE_SECOND;
 
         String trueName = gameList.get(0).get("name");
@@ -201,10 +203,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         answerThird.setText(String.valueOf(gameList.get(3).get("population")));
         answerFour.setText(String.valueOf(gameList.get(1).get("population")));
     }
+
     /**
      * if select TYPE_THIRD
      */
-    private void countryArea(){
+    private void countryArea() {
         chosenType = TYPE_THIRD;
 
         String trueName = gameList.get(0).get("name");
@@ -216,10 +219,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         answerThird.setText(gameList.get(1).get("area"));
         answerFour.setText(gameList.get(0).get("area"));
     }
+
     /**
      * if select TYPE_FOUR
      */
-    private void countryCapital(){
+    private void countryCapital() {
         chosenType = TYPE_FOUR;
 
         String trueName = gameList.get(0).get("capital");
