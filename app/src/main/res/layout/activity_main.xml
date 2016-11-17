@@ -12,38 +12,42 @@
     android:background="@drawable/menu_back">
 
     <Button
-        android:text="Статистика"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ma_statistic_btn"
-        android:layout_above="@+id/ma_about_btn"
-        android:layout_alignEnd="@+id/ma_start_game_btn"
-        android:layout_marginBottom="16dp" />
-
-    <Button
         android:text="Начать игру"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150sp"
+        android:layout_height="40sp"
+        android:background="@drawable/menu_button_g"
         android:id="@+id/ma_start_game_btn"
-        android:layout_alignBottom="@+id/ma_statistic_btn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="58dp" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:text="Выход"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="27dp"
+        android:layout_width="150sp"
+        android:layout_height="40sp"
+        android:background="@drawable/menu_button_g"
+        android:layout_marginBottom="15dp"
         android:id="@+id/ma_exit_btn"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/ma_about_btn" />
+        android:layout_alignStart="@+id/ma_statistic_btn" />
 
     <Button
         android:text="О игре"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_width="150sp"
+        android:layout_height="40sp"
+        android:background="@drawable/menu_button_g"
         android:id="@+id/ma_about_btn"
-        android:layout_above="@+id/ma_exit_btn"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/ma_start_game_btn"
+        android:layout_alignStart="@+id/ma_start_game_btn"
+        android:layout_marginTop="45dp" />
+
+    <Button
+        android:text="Статистика"
+        android:layout_width="150sp"
+        android:layout_height="40sp"
+        android:background="@drawable/menu_button_g"
+        android:id="@+id/ma_statistic_btn"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_marginTop="52dp"
+        android:layout_below="@+id/ma_start_game_btn"
+        android:layout_alignStart="@+id/ma_about_btn" />
 </RelativeLayout>

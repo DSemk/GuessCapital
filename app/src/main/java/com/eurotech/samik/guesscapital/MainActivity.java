@@ -30,17 +30,26 @@ public class MainActivity extends AppCompatActivity {
     Button exit;
     Button aboutAs;
     Button statistic;
+
     private boolean dataComplete = false;
 
-
+    /**
+     * @param {boolean} dataComplete  - символизирует готовность бд к работе или нет
+     */
     private void dbChecker() {
         BaseDataManager dataManager = BaseDataManager.getDataManager(MainActivity.this);
         if (!dataManager.bdCreateOrNo()) {
             getServerData();
-        }else dataComplete = true;
+        } else dataComplete = true;
 
     }
 
+
+    /**
+     * @metod dbChecker() - проверяет готовность бд к родоте
+     * @metod initialize() - инициализируем все View элементы
+     * @metod createButtonListener() - create all button's listener
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         aboutAs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                        Toast.makeText(getApplicationContext(), "В разработке", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "В разработке", Toast.LENGTH_SHORT).show();
             }
         });
         statistic.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +103,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+      * Получает данные с сервера, и вызывает
+     * @metod createTempList () - заполняет бд данными и передает список данный в Singleton.class
+      */
     private void getServerData() {
         Retrofit.getContries(new Callback<List<Country>>() {
             @Override
@@ -121,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
             myList.add(countryEqals);
         }
         int count = 0;
-//        ArrayList<HashMap<String, String>> bdList = SingletonBD.getInstance().getList();
+
         for (int i = 0; i < myList.size(); i++) {
             HashMap<String, String> h = myList.get(i);
             dataManager.insertCountry(

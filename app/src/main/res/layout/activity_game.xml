@@ -7,30 +7,11 @@
     <Button
         android:text="Button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
+        android:background="@drawable/game_button"
         android:layout_marginTop="11dp"
         android:id="@+id/ga_third_q_btn"
         android:layout_below="@+id/ga_second_q_btn"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:id="@+id/ga_first_q_btn"
-        android:layout_below="@+id/ga_question"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="70dp"
-        android:id="@+id/ga_question"
-        android:textColor="#FFF"
-        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -46,7 +27,8 @@
     <Button
         android:text="Button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
+        android:background="@drawable/game_button"
         android:id="@+id/ga_second_q_btn"
         android:layout_marginTop="12dp"
         android:layout_below="@+id/ga_first_q_btn"
@@ -55,9 +37,101 @@
     <Button
         android:text="Button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
+        android:background="@drawable/game_button"
         android:layout_marginTop="12dp"
         android:id="@+id/ga_four_q_btn"
         android:layout_below="@+id/ga_third_q_btn"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:background="@drawable/game_button"
+        android:layout_marginTop="46dp"
+        android:id="@+id/ga_first_q_btn"
+        android:layout_below="@+id/ga_question"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="21dp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:id="@+id/image_answer_1"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+
+            android:id="@+id/image_answer_2"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:id="@+id/image_answer_3"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+
+            android:id="@+id/image_answer_4"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+
+            android:id="@+id/image_answer_5"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+
+            android:id="@+id/image_answer_6"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+
+            android:id="@+id/image_answer_7"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+
+            android:id="@+id/image_answer_8"/>
+        <ImageView
+            android:layout_width="41dp"
+            android:layout_height="match_parent"
+
+            android:id="@+id/image_answer_9"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+
+            android:id="@+id/image_answer_10"/>
+    </LinearLayout>
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="116dp"
+        android:id="@+id/ga_question"
+        android:textColor="#FFF"
+        android:layout_below="@+id/ga_question_number"
         android:layout_alignParentStart="true" />
 </RelativeLayout>
