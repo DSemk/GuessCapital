@@ -143,7 +143,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 if (s.equals(gameList.get(0).get("capital"))) {
                     trueAnswers++;
                     setProgress(true);
-                }else {
+                } else {
                     setProgress(false);
                 }
                 startGame();
@@ -152,7 +152,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 if (s.equals(gameList.get(0).get("population"))) {
                     trueAnswers++;
                     setProgress(true);
-                }else {
+                } else {
                     setProgress(false);
                 }
                 startGame();
@@ -161,7 +161,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 if (s.equals(gameList.get(0).get("area"))) {
                     trueAnswers++;
                     setProgress(true);
-                }else {
+                } else {
                     setProgress(false);
                 }
                 startGame();
@@ -170,7 +170,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 if (s.equals(gameList.get(0).get("name"))) {
                     trueAnswers++;
                     setProgress(true);
-                }else {
+                } else {
                     setProgress(false);
                 }
                 startGame();
@@ -190,7 +190,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         chosenType = TYPE_ONE;
 
         String trueName = gameList.get(0).get("name");
-        String questionStr = "Какая столица страны : " + trueName + " ?";
+        String questionStr = "Какая столица страны " + trueName + " ?";
         question.setText(questionStr);
 
         answerOne.setText(gameList.get(3).get("capital"));
@@ -207,13 +207,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         chosenType = TYPE_SECOND;
 
         String trueName = gameList.get(0).get("name");
-        String questionStr = "Какое население страны : " + trueName + " в млн. ?";
+        String questionStr = "Какое население страны " + trueName + " ?";
         question.setText(questionStr);
 
-        answerOne.setText(String.valueOf(gameList.get(0).get("population")));
-        answerSec.setText(String.valueOf(gameList.get(2).get("population")));
-        answerThird.setText(String.valueOf(gameList.get(3).get("population")));
-        answerFour.setText(String.valueOf(gameList.get(1).get("population")));
+        answerOne.setText(gameList.get(0).get("population"));
+        answerSec.setText(gameList.get(2).get("population"));
+        answerThird.setText(gameList.get(3).get("population"));
+        answerFour.setText(gameList.get(1).get("population"));
     }
 
     /**
@@ -223,7 +223,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         chosenType = TYPE_THIRD;
 
         String trueName = gameList.get(0).get("name");
-        String questionStr = "Какая площадь страны : " + trueName + " в кв.км. ?";
+        String questionStr = "Какая площадь страны " + trueName + " ?";
         question.setText(questionStr);
 
         answerOne.setText(gameList.get(3).get("area"));
@@ -239,7 +239,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         chosenType = TYPE_FOUR;
 
         String trueName = gameList.get(0).get("capital");
-        String questionStr = "Какой стране принадлежит столица: " + trueName + " ?";
+        String questionStr = "Какой стране принадлежит столица " + trueName + " ?";
         question.setText(questionStr);
 
         answerOne.setText(gameList.get(3).get("name"));
@@ -247,13 +247,14 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         answerThird.setText(gameList.get(2).get("name"));
         answerFour.setText(gameList.get(1).get("name"));
     }
-    private void setProgress(boolean answer){
+
+    private void setProgress(boolean answer) {
         int imageT = R.drawable.true_image;
 
-        if(answer == false){
-           imageT = R.drawable.false_image;
+        if (answer == false) {
+            imageT = R.drawable.false_image;
         }
-        switch (allAnswer){
+        switch (allAnswer) {
             case 1:
                 imageOne.setImageResource(imageT);
                 break;
@@ -301,15 +302,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         answerSec.setOnClickListener(this);
         answerOne.setOnClickListener(this);
 
-        imageOne = (ImageView)findViewById(R.id.image_answer_1);
-        imageTwo = (ImageView)findViewById(R.id.image_answer_2);
-        imageThrie = (ImageView)findViewById(R.id.image_answer_3);
-        imageFour = (ImageView)findViewById(R.id.image_answer_4);
-        imageFive = (ImageView)findViewById(R.id.image_answer_5);
-        imageSix = (ImageView)findViewById(R.id.image_answer_6);
-        imageSeven = (ImageView)findViewById(R.id.image_answer_7);
-        imageEit = (ImageView)findViewById(R.id.image_answer_8);
-        imageNine = (ImageView)findViewById(R.id.image_answer_9);
-        imageTen = (ImageView)findViewById(R.id.image_answer_10);
+        imageOne = (ImageView) findViewById(R.id.image_answer_1);
+        imageTwo = (ImageView) findViewById(R.id.image_answer_2);
+        imageThrie = (ImageView) findViewById(R.id.image_answer_3);
+        imageFour = (ImageView) findViewById(R.id.image_answer_4);
+        imageFive = (ImageView) findViewById(R.id.image_answer_5);
+        imageSix = (ImageView) findViewById(R.id.image_answer_6);
+        imageSeven = (ImageView) findViewById(R.id.image_answer_7);
+        imageEit = (ImageView) findViewById(R.id.image_answer_8);
+        imageNine = (ImageView) findViewById(R.id.image_answer_9);
+        imageTen = (ImageView) findViewById(R.id.image_answer_10);
     }
 }

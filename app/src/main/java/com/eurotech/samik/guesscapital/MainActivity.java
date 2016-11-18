@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean dataComplete = false;
 
     /**
-     * @param {boolean} dataComplete  - символизирует готовность бд к работе или нет
+     * @param {boolean} dataComplete  - It symbolizes the willingness of the database to work or not
      */
     private void dbChecker() {
         BaseDataManager dataManager = BaseDataManager.getDataManager(MainActivity.this);
@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * @metod dbChecker() - проверяет готовность бд к родоте
-     * @metod initialize() - инициализируем все View элементы
+     * @metod dbChecker() - check the readiness of the database for use
+     * @metod initialize() - View initialize all elements
      * @metod createButtonListener() - create all button's listener
      */
     @Override
@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
                 if (dataComplete) {
                     startActivity(intent);
                 }
-
             }
         });
         exit.setOnClickListener(new View.OnClickListener() {
@@ -104,8 +103,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-      * Получает данные с сервера, и вызывает
-     * @metod createTempList () - заполняет бд данными и передает список данный в Singleton.class
+      * It receives data from the server, and causes
+     * @metod createTempList () - populates the database data, and transmits this to the list Singleton.class
       */
     private void getServerData() {
         Retrofit.getContries(new Callback<List<Country>>() {
@@ -120,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private ArrayList<HashMap<String, String>> createTempList(List<Country> list) {
         ArrayList<HashMap<String, String>> myList = new ArrayList<>();
